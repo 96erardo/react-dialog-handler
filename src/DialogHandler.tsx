@@ -1,13 +1,13 @@
 import React from 'react';
 
-export const OpenerContext = React.createContext((id, params) => {});
+export const OpenerContext = React.createContext<Opener>((id, params) => {});
 
-export const CloserContext = React.createContext((id) => {});
+export const CloserContext = React.createContext<Closer>((id) => {});
 
-export const ParamsContext = React.createContext({});
+export const ParamsContext = React.createContext<State>({});
 
-export class DialogHandler extends React.Component {
-  constructor (props) {
+export class DialogHandler extends React.Component<Props, State> {
+  constructor (props: Props) {
     super(props);
 
     this.state = {};
@@ -16,7 +16,7 @@ export class DialogHandler extends React.Component {
     this.closeDialog = this.closeDialog.bind(this);
   }
 
-  openDialog(id, params) {
+  openDialog<T= any>(id: string, params: T) {
     this.setState(prevState => ({
       ...prevState,
       [id]: {
@@ -26,7 +26,7 @@ export class DialogHandler extends React.Component {
     }))
   }
 
-  closeDialog (id) {
+  closeDialog (id: string) {
     this.setState(prevState => ({
       ...prevState,
       [id]: { open: false },
@@ -45,3 +45,18 @@ export class DialogHandler extends React.Component {
     );
   }
 }
+
+type Props = {
+  children: React.ReactElement
+};
+
+export type State<T = any> = {
+  [key: string]: {
+    open: boolean,
+    params?: T
+  }
+}
+
+export type Opener = <T= any>(id: string, params: T) => void;
+
+export type Closer = (id: string) => void

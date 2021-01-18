@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { OpenerContext, CloserContext, ParamsContext } from './DialogHandler';
+import { OpenerContext, CloserContext, ParamsContext, Opener, State } from './DialogHandler';
 
 /**
  * Use the dialog opener function
@@ -7,7 +7,7 @@ import { OpenerContext, CloserContext, ParamsContext } from './DialogHandler';
  * @returns The opener function
  */
 export function useDialogOpener () {
-  const openDialog = useContext(OpenerContext);
+  const openDialog = useContext<Opener>(OpenerContext);
 
   return openDialog
 }
@@ -30,8 +30,8 @@ export function useDialogCloser () {
  * 
  * @returns The specified dialog's params
  */
-export function useDialogParams(id) {
-  const state = useContext(ParamsContext);
+export function useDialogParams<T>(id: string) {
+  const state = useContext<State<T>>(ParamsContext);
 
   if (!state[id]) {
     return { open: false };
