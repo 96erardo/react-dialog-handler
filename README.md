@@ -82,16 +82,19 @@ Returns the open state of the dialog and the parameters passed to it
 This way you can declare your dialogs with a pattern like this
 
 ```js
-// FormDialog.ts
-import { useDialogParams } from "react-dialog-handler";
+// FormDialog.tsx
+import { useDialogParams, useDialogCloser } from "react-dialog-handler";
 
 export const dialogId = "form-dialog-id";
 
 export const FormDialog: React.FC = () => {
   const { open, params } = useDialogParams<Params>(dialogId);
+  const closeDialog = useDialogCloser();
+
+  const onClose = () => closeDialog(dialogId);
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onClose={onClose}>
       <DialogTitle>
         {params?.name}
       </DialogTitle>
@@ -103,7 +106,7 @@ export type Params = {
   title: string
 }
 
-// View.ts
+// View.tsx
 import { dialogId, Params } from "./FormDialog";
 import { useDialogOpener } from "react-dialog-handler";
 
