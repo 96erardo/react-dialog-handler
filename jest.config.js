@@ -8,5 +8,5 @@ module.exports = {
   transform: {
     "\\.[jt]sx?$": ["babel-jest", { configFile: './__tests__/babel.config.json' }]
   },
-  testRegex: '^.*\.(test|spec)\.(t|j)s$',
+  testRegex: '^.*\.(test|spec)\.(t|j)sx?$',
 };
