@@ -128,5 +128,13 @@ export const View: React.FC = () => {
 npm test
 ```
 
-## Contibute
+## Contribute
 Feel free to open an issue if you have any problem with the package :)
+
+### Submitting Changes
+
+- Open a new issue in the Issue tracker.
+- Fork the repo.
+- Create a new feature branch based off the develop branch.
+- Make sure all tests pass and there are no linting errors.
+- Submit a pull request, referencing any issues it addresses.
