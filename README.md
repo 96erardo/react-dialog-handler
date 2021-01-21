@@ -122,3 +122,11 @@ export const View: React.FC = () => {
   );
 }
 ```
+
+## Test
+```
+npm test
+```
+
+## Contibute
+Feel free to open an issue if you have any problem with the package :)
