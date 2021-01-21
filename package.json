@@ -1,6 +1,6 @@
 {
   "name": "react-dialog-handler",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tool for handling react dialogs more efficiently",
   "main": "./dist/index.js",
   "scripts": {
