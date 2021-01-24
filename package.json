@@ -1,6 +1,6 @@
 {
   "name": "react-dialog-handler",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Tool for handling react dialogs more efficiently",
   "main": "./dist/index.js",
   "scripts": {
@@ -16,8 +16,12 @@
     "handler",
     "efficiency"
   ],
-  "author": "Gerardo García",
+  "author": "Gerardo García <gerardoagl96@gmail.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GerardoAGL96/react-dialog-handler"
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
